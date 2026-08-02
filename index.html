@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Naye ❤️</title>
+    <!-- Iconos de Instagram -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden; 
+        }
+
+        /* --- PANTALLA DE BIENVENIDA --- */
+        #pantalla-bienvenida {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: opacity 1s ease;
+        }
+
+        #pantalla-bienvenida h1 { color: #e84393; margin-bottom: 30px; font-size: 32px; text-align: center; padding: 0 20px; }
+
+        #btn-entrar {
+            background: #e84393; color: white; border: none; padding: 15px 40px; font-size: 20px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(214, 48, 49, 0.4);
+            transition: all 0.3s ease; animation: latido 2s infinite;
+        }
+        #btn-entrar:hover { background: #d63031; transform: scale(1.1); }
+
+        /* --- ANIMACIONES --- */
+        @keyframes aparecer { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes latido { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        @keyframes volar { 0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; } 10% { opacity: 0.85; } 50% { transform: translateY(-50vh) translateX(40px) scale(1.1); } 100% { transform: translateY(-120vh) translateX(-40px) scale(1); opacity: 0; } }
+        @keyframes girar { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        #contenido-principal {
+            display: none; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 20px; box-sizing: border-box; z-index: 10;
+        }
+
+        #reloj { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 15px; margin-bottom: 40px; max-width: 750px; }
+        .bloque-tiempo { display: flex; flex-direction: column; align-items: center; }
+        .bloque-tiempo strong { color: #e84393; font-weight: 900; line-height: 1; text-shadow: 2px 4px 15px rgba(255, 255, 255, 1); }
+        .bloque-tiempo span { font-weight: 900; color: #2c3e50; text-transform: uppercase; margin-top: 8px; }
+        
+        .bloque-anos strong { font-size: 80px; }
+        .bloque-meses strong { font-size: 65px; }
+        .bloque-dias strong { font-size: 50px; }
+
+        .container {
+            text-align: center; background: rgba(255, 255, 255, 0.95); padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 450px; z-index: 10;
+        }
+        .options { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; }
+        .btn { background: #e84393; color: white; text-decoration: none; padding: 15px; border-radius: 50px; font-size: 16px; font-weight: bold; transition: all 0.3s ease; }
+        .btn:hover { background: #d63031; transform: scale(1.05); }
+        .btn-proximamente { background: #ccc; cursor: not-allowed; }
+
+        .social-links { margin-top: 20px; display: flex; gap: 25px; justify-content: center; }
+        .social-btn { color: #e84393; text-decoration: none; transition: transform 0.3s ease; }
+        .social-btn:hover { transform: scale(1.2); color: #d63031; }
+
+        .efecto-fondo { position: fixed; bottom: -50px; z-index: 5; pointer-events: none; animation: volar linear forwards; display: flex; align-items: center; justify-content: center; }
+        .girasol { display: inline-block; animation: girar linear infinite; }
+        .btn-musica { position: fixed; bottom: 20px; right: 20px; background: #e84393; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 1000; }
+    </style>
+</head>
+<body>
+
+    <div id="pantalla-bienvenida">
+        <h1>GANASTE UN CARRO 0 KM</h1>
+        <button id="btn-entrar"> >DALE CLICK<❤️</button>
+    </div>
+
+    <div id="contenido-principal" style="opacity: 0;">
+        <div id="reloj"></div>
+
+        <div class="container">
+            <h1>Mi persona favorita <span class="corazon">❤️</span></h1>
+
+            <div class="options">
+                <a href="nuestra-historia.html" class="btn">📖 Nuestra Historia</a>
+                <a href="fotos.html" class="btn">📸 Fotos</a>
+                <a href="#" class="btn btn-proximamente">🔜 Próximamente</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/nayeli2206" target="_blank" class="social-btn"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="https://www.instagram.com/kamikaze_de_mtv/" target="_blank" class="social-btn"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <audio id="musica-fondo" loop>
+        <source src="THEREASON.MP3" type="audio/mpeg">
+    </audio>
+
+    <button id="btn-play" class="btn-musica">⏸️</button>
+
+    <script>
+        const btnEntrar = document.getElementById('btn-entrar');
+        const pantallaBienvenida = document.getElementById('pantalla-bienvenida');
+        const contenidoPrincipal = document.getElementById('contenido-principal');
+        const musica = document.getElementById('musica-fondo');
+        const btnPlay = document.getElementById('btn-play');
+        let reproduciendo = false;
+
+        btnEntrar.addEventListener('click', () => {
+            musica.play();
+            reproduciendo = true;
+            pantallaBienvenida.style.opacity = '0';
+            setTimeout(() => {
+                pantallaBienvenida.style.display = 'none';
+                contenidoPrincipal.style.display = 'flex';
+                contenidoPrincipal.style.animation = 'aparecer 1.5s ease-out forwards';
+                btnPlay.style.display = 'flex';
+                iniciarEfectos();
+            }, 800); 
+        });
+
+        btnPlay.addEventListener('click', () => {
+            if (reproduciendo) { musica.pause(); btnPlay.innerHTML = '🎵'; } 
+            else { musica.play(); btnPlay.innerHTML = '⏸️'; }
+            reproduciendo = !reproduciendo;
+        });
+
+        const inicio = new Date(2022, 1, 28); 
+        setInterval(() => {
+            const ahora = new Date();
+            let años = ahora.getFullYear() - inicio.getFullYear();
+            let meses = ahora.getMonth() - inicio.getMonth();
+            let dias = ahora.getDate() - inicio.getDate();
+            if (dias < 0) { meses--; dias += new Date(ahora.getFullYear(), ahora.getMonth(), 0).getDate(); }
+            if (meses < 0) { años--; meses += 12; }
+            document.getElementById('reloj').innerHTML = `
+                <div class="bloque-tiempo bloque-anos"><strong>${años}</strong><span>Años</span></div>
+                <div class="bloque-tiempo bloque-meses"><strong>${meses}</strong><span>Meses</span></div>
+                <div class="bloque-tiempo bloque-dias"><strong>${dias}</strong><span>Días</span></div>
+            `;
+        }, 1000);
+
+        function crearEfecto(tipo) {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('efecto-fondo');
+            wrapper.innerHTML = tipo === 'girasol' ? '🌻' : '🦋';
+            wrapper.style.left = Math.random() * 100 + 'vw';
+            wrapper.style.animationDuration = (Math.random() * 7 + 8) + 's';
+            document.body.appendChild(wrapper);
+            setTimeout(() => wrapper.remove(), 15000);
+        }
+
+        function iniciarEfectos() {
+            setInterval(() => crearEfecto('girasol'), 2000);
+            setInterval(() => crearEfecto('mariposa'), 3000);
+        }
+    </script>
+</body>
+</html>

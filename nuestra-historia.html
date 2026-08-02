@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia ❤️</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #e84393;
+            font-size: 36px;
+            text-align: center;
+            text-shadow: 2px 2px 10px rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+        }
+        
+        /* Estilo base para las fotos flotantes */
+        .foto-flotante {
+            position: fixed;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Dos animaciones distintas para que no se muevan igual */
+        .foto-1 { animation: moverFoto1 25s ease-in-out infinite alternate; }
+        .foto-2 { animation: moverFoto2 30s ease-in-out infinite alternate; }
+
+        @keyframes moverFoto1 {
+            0%   { transform: translate(5vw, 5vh) rotate(-10deg); }
+            33%  { transform: translate(80vw, 20vh) rotate(15deg); }
+            66%  { transform: translate(20vw, 70vh) rotate(-5deg); }
+            100% { transform: translate(70vw, 80vh) rotate(10deg); }
+        }
+
+        @keyframes moverFoto2 {
+            0%   { transform: translate(70vw, 10vh) rotate(5deg); }
+            33%  { transform: translate(10vw, 40vh) rotate(-15deg); }
+            66%  { transform: translate(50vw, 85vh) rotate(5deg); }
+            100% { transform: translate(5vw, 10vh) rotate(-10deg); }
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #e84393; 
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 5px;
+        }
+        .container-box {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .container-box.left { left: 0; }
+        .container-box.right { left: 50%; }
+        .container-box::after {
+            content: '❤️';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #ff9a9e;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 6; /* Aseguramos que los corazones queden encima de las fotos */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        .right::after { left: -16px; }
+        .content {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .content:hover { transform: scale(1.02); }
+        .content h2 { margin-top: 0; color: #e84393; font-size: 20px; }
+        
+        .btn-volver {
+            margin-top: 40px;
+            background: #e84393;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(214, 48, 49, 0.4);
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+        .btn-volver:hover { transform: scale(1.05); background: #d63031; }
+
+        .btn-musica {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #e84393;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .btn-musica:hover { transform: scale(1.1); background: #d63031; }
+
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .container-box { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .container-box.right { left: 0; }
+            .container-box.left::after, .container-box.right::after { left: 15px; }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Ambas fotos flotando -->
+    <img src="naye.jpg" alt="Naye" class="foto-flotante foto-1">
+    <img src="paracas.png" alt="Paracas" class="foto-flotante foto-2">
+    
+    <h1>Cómo empezó todo... 📖</h1>
+    
+    <div class="timeline">
+        <div class="container-box left">
+            <div class="content">
+                <h2>El día que nos conocimos</h2>
+                <p>El inicio de todo. Durante la época de pandemia en el instituto, coincidimos primero de forma virtual. No lo sabíamos entonces, pero ese fue el inicio de nuestra historia.</p>
+            </div>
+        </div>
+        <div class="container-box right">
+            <div class="content">
+                <h2>28 de Febrero de 2022</h2>
+                <p>El día que decidimos empezar esta hermosa aventura juntos. Nuestro primer "Sí".</p>
+            </div>
+        </div>
+        <div class="container-box left">
+            <div class="content">
+                <h2>Nuestro primer viaje</h2>
+                <p>El viaje a Paracas con los Compañeros del Instituto, primera vez que salimos mas lejos de nuestros limites.</p>
+            </div>
+        </div>
+        <div class="container-box right">
+            <div class="content">
+                <h2>Hoy y siempre</h2>
+                <p>Cada día a tu lado es una nueva página de nuestra historia de Amor.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-volver">⬅ Volver al Inicio</a>
+
+    <audio id="musica-fondo" loop autoplay>
+        <source src="AMAPOLAS.MP3" type="audio/mpeg">
+    </audio>
+
+    <button id="btn-play" class="btn-musica">⏸️</button>
+
+    <script>
+        const musica = document.getElementById('musica-fondo');
+        const btnPlay = document.getElementById('btn-play');
+        let reproduciendo = true;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            let playPromise = musica.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => { reproduciendo = false; btnPlay.innerHTML = '🎵'; });
+            }
+        });
+
+        document.body.addEventListener('click', () => {
+            if (!reproduciendo) { musica.play(); btnPlay.innerHTML = '⏸️'; reproduciendo = true; }
+        }, { once: true });
+
+        btnPlay.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            if (reproduciendo) { musica.pause(); btnPlay.innerHTML = '🎵'; } 
+            else { musica.play(); btnPlay.innerHTML = '⏸️'; }
+            reproduciendo = !reproduciendo;
+        });
+    </script>
+</body>
+</html>
